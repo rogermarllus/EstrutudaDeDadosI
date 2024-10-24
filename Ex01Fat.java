@@ -20,20 +20,4 @@ public class Ex01Fat {
         }
         return fat;
     }
-
-    public static long fibo(long n) {
-        if (n == 0 || n == 1) {
-            return n;
-        } else {
-            long f1 = 0;
-            long f2 = 1;
-
-            for (long i = 2; i <= n; i++) {
-                long fibo = f1 + f2;
-                f1 = f2;
-                f2 = fibo;
-            }
-            return f2;
-        }
-    }
 }
