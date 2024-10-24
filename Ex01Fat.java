@@ -5,14 +5,15 @@ public class Ex01Fat {
         Scanner scan = new Scanner(System.in);
         System.out.print("Informe um número: ");
         int n = scan.nextInt();
-        System.out.printf("O Fatorial de %d é igual a %d", n, fat(n));
+        if (n < 0) {
+            System.out.println("Informe um número positivo.");
+        } else {
+            System.out.printf("O Fatorial de %d é igual a %d", n, fat(n));
+        }
         scan.close();
     }
 
     public static long fat(long n) {
-        if (n < 0) {
-            throw new IllegalArgumentException("Informe um número positivo.");
-        }
         long fat = 1;
         for (long i = 1; i <= n; i++) {
             fat *= i;
