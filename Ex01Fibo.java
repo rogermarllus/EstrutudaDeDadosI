@@ -1,38 +1,30 @@
 import java.util.Scanner;
 
 public class Ex01Fibo {
-  public static void main(String[] args) throws Exception {
-    Scanner scan = new Scanner(System.in);
-    System.out.print("Informe um número: ");
-    int n = scan.nextInt();
-    System.out.printf("O Fibonacci de %d é igual a %d", n, fibo(n));
-    scan.close();
-  }
-
-  public static long fat(long n) {
-    if (n < 0) {
-      throw new IllegalArgumentException("Informe um número positivo.");
+    public static void main(String[] args) throws Exception {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Informe um número: ");
+        int n = scan.nextInt();
+        
+        long[] fiboSeq = fibo(n);
+        System.out.printf("Os primeiros %d números da sequência de Fibonacci são: ", n);
+        for (long num : fiboSeq) {
+            System.out.print(num + " ");
+        }
+        
+        scan.close();
     }
-    long fat = 1;
-    for (long i = 1; i <= n; i++) {
-      fat *= i;
-    }
-    return fat;
-  }
 
-  public static long fibo(long n) {
-    if (n == 0 || n == 1) {
-      return n;
-    } else {
-      long f1 = 0;
-      long f2 = 1;
+    public static long[] fibo(int n) {
+        long[] fiboSeq = new long[n];
+        
+        if (n >= 1) fiboSeq[0] = 0;
+        if (n >= 2) fiboSeq[1] = 1;
 
-      for (long i = 2; i <= n; i++) {
-        long fibo = f1 + f2;
-        f1 = f2;
-        f2 = fibo;
-      }
-      return f2;
+        for (int i = 2; i < n; i++) {
+            fiboSeq[i] = fiboSeq[i - 1] + fiboSeq[i - 2];
+        }
+        
+        return fiboSeq;
     }
-  }
 }
