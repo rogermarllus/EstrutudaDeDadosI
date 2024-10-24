@@ -5,12 +5,16 @@ public class Ex03 {
     Scanner scan = new Scanner(System.in);
     System.out.print("Informe um número: ");
     int n = scan.nextInt();
-    if (isPrimo(n, 3)) {
+    if (isPrimo(n)) {
       System.out.printf("%d é primo.", n);
     } else {
       System.out.printf("%d não é primo.", n);
     }
     scan.close();
+  }
+
+  public static boolean isPrimo(int n) {
+    return isPrimo(n, 3);
   }
 
   public static boolean isPrimo(int n, int d) {
