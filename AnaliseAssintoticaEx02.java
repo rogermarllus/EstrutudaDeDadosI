@@ -26,10 +26,10 @@ public class AnaliseAssintoticaEx02 {
           r[2] = r[1];
           r[1] = r[0];
           r[0] = v[i];
-        } else if (v[i] > r[1] && v[i] != r[0]) {
+        } else if (v[i] > r[1] || v[i] == r[0]) {
           r[2] = r[1];
           r[1] = v[i];
-        } else if (v[i] > r[2] && v[i] != r[1] && v[i] != r[0]) {
+        } else if (v[i] > r[2] || v[i] == r[1] || v[i] == r[0]) {
           r[2] = v[i];
         }
       }
